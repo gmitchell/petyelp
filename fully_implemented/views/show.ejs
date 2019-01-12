@@ -1,0 +1,31 @@
+<% include partials/header.ejs %>
+
+<!-- Tealium Universal Data Object -->
+<script type="text/javascript">
+  var utag_data={
+      "page_name"      : "show",
+      "page_type"      : "listing details",
+      "event_name"     : "page load",
+      "location"       : "<%= location.name %>"
+  };
+</script>
+
+<div class="container">
+  <div class="panel panel-default">
+    <h3 class="panel-title"> <h1><%= location.name %> </h1></h3>
+
+    <div class="panel-body">
+      <div style="width:600px">
+        <img src="<%= location.image %>" style="max-width:100%;"/>
+      </div>
+    </div>
+    <p><div class="well well-sm"><%= location.discription %></div></p>
+
+    <div class="panel-footer">
+      <a class="btn btn-lrg btn-primary" href="/locations">Go Back</a>
+    </div>
+  </div>
+</div>
+
+<% include partials/footer.ejs %>
+
