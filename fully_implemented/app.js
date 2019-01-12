@@ -16,13 +16,18 @@ var locationSchema = new mongoose.Schema({
 
 var Location = mongoose.model("Location", locationSchema);
 
-
-
-
+// INDEX - Show all locations
 app.get("/", function(req, res){
-  res.redirect("/locations");
+  Location.find({}, function(err, alllocations){
+    if(err){
+      console.log(err)
+    } else {
+      res.render("index", {locations: alllocations})
+    }
+  })
 })
 
+// GET - Show more info about one campground
 app.get("/locations", function(req, res){
   Location.find({}, function(err, alllocations){
     if(err){
@@ -33,10 +38,12 @@ app.get("/locations", function(req, res){
   })
 });
 
+// NEW - Show new location form
 app.get("/locations/new", function(req, res){
   res.render("new");
 });
 
+// CREATE - Create a new location, then redirect home
 app.post("/locations", function(req, res){
   var name = req.body.name;
   var image = req.body.image;
@@ -46,12 +53,12 @@ app.post("/locations", function(req, res){
     if(err){
       console.log(err)
     } else {
-      res.redirect("/locations");
+      res.redirect("/");
     }
   })
 });
 
-// SHOW - shows more info about one campground
+// SHOW - show more info about one location
 app.get("/locations/:id", function(req, res){
   Location.findById(req.params.id, function(err, foundLocation){
     if(err){
