@@ -11,7 +11,7 @@ app.set("view engine", "ejs");
 var locationSchema = new mongoose.Schema({
   name: String,
   image: String,
-  discription: String
+  description: String
 })
 
 var Location = mongoose.model("Location", locationSchema);
@@ -47,8 +47,8 @@ app.get("/locations/new", function(req, res){
 app.post("/locations", function(req, res){
   var name = req.body.name;
   var image = req.body.image;
-  var desc = req.body.discription;
-  var newLocation = {name: name, image: image, discription: desc}
+  var desc = req.body.description;
+  var newLocation = {name: name, image: image, description: desc}
   Location.create(newLocation, function(err, newlyCreated){
     if(err){
       console.log(err)
