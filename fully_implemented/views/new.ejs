@@ -1,5 +1,5 @@
 <% include partials/header %>
-
+<script type="text/javascript" src="../modal.js"></script>
 <!-- Tealium Universal Data Object -->
 <script type="text/javascript">
   var utag_data={
@@ -29,30 +29,35 @@
           <button class="btn btn-lrg btn-primary btn-block">Submit!</button>
         </div>
       </form>
-
       <a class="btn btn-info btn-med" href="/">Go Back</a>
 
-      <button type="button" class="btn btn-info btn-med" data-toggle="modal" data-target="#myModal" onclick=''>Site Guidelines</button>
+      <!-- Modal button -->
+      <button class="btn btn-info btn-med" onclick="openModal()">More Info</button>
 
-      <!-- modal -->
-      <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Site guidlines:</h4>
-            </div>
-            <div class="modal-body">
-              <p>Length boy heckin angery woofer doggo noodle horse h*ck noodle horse snoot, yapper doing me a frighten borking doggo h*ck boofers. Lotsa pats pupperino shoober noodle horse he made many woofs boofers long water shoob doggo you are doing me the shock, doggo boofers such treat h*ck tungg woofer. Lotsa pats boofers doggo blep, long bois boof. Noodle horse many pats big ol pupper much ruin diet heckin, corgo big ol what a nice floof. Long bois he made many woofs aqua doggo length boy, vvv such treat puggo you are doing me a frighten, shoober fat boi. Noodle horse puggo noodle horse you are doin me a concern, very jealous pupper snoot. Heckin good boys and girls boofers waggy wags pupperino, sub woofer. </p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-          </div>
+      <!-- Modal body -->
+      <dialog id="moreInfo">
+        <div class="modal-body">
+          <p> Noodle horse he made many woofs taste wow waggy wags pats, stop it fren heckin puggo you are doin me a concern heckin angery woofer heck. </p>
+          <button class="btn btn-info btn-med" onclick="closeModal()">Close</button>
         </div>
-      </div>
+      </dialog>
+
     </div>
   </div>
+
+  <!-- Modal JavaScript -->
+  <script>
+    // Open Modal
+    function openModal() {
+      document.getElementById("moreInfo").showModal();
+    }
+
+    // Close Modal
+    function closeModal() {
+      document.getElementById("moreInfo").close();
+    }
+  </script>
+
 </div>
 
 <% include partials/footer %>

@@ -1,0 +1,21 @@
+<% include partials/header.ejs %>
+
+<div class="container">
+  <div class="panel panel-default">
+    <h3 class="panel-title"> <h1><%= location.name %> </h1></h3>
+
+    <div class="panel-body">
+      <div style="width:600px">
+        <img src="<%= location.image %>" style="max-width:100%;"/>
+      </div>
+    </div>
+    <p><div class="well well-sm"><%= location.discription %></div></p>
+
+    <div class="panel-footer">
+      <a class="btn btn-lrg btn-primary" href="/">Go Back</a>
+    </div>
+  </div>
+</div>
+
+<% include partials/footer.ejs %>
+

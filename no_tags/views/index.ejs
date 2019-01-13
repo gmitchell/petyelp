@@ -1,0 +1,43 @@
+<% include partials/header %>
+
+<div class="container">
+  <!-- Jumbotron -->
+  <header class='jumbotron'>
+    <div class ="container" style="background-color:rgb(204, 242, 188)">
+      <h1> Welcome to PetYelp! </h1>
+      <p>Find the Best Places in Town <span style="font-family: 'Gloria Hallelujah', cursive; font-size: 1.25em;">Fur</span> Your Pet!</p>
+      <p>
+        <a class="btn btn-primary btn-large" href="/locations/new" onClick="ga('send', 'event', 'new_location', 'button_click');">Add New Location</a>
+      </p>
+  </div>
+  </header>
+
+  <div class="row">
+    <div class="col-lg-12 card-header">
+        <div class="alert alert-success" role="alert">Our Most Popular Locations</div>
+    </div>
+  </div>
+
+  <div class="row text-center" style:"display:flex; flex-wrap:wrap;">
+    <% locations.forEach(function(location){ %>
+      <div class="col-md-3 col-sm-6">
+        <div class="thumbnail">
+          <img src="<%= location.image %>">
+          <div class="caption">
+            <h4><%= location.name %></h4>
+          </div>
+          <p><a href="/locations/<%=location._id %>" class="btn btn-primary"
+              onclick='utag.link({
+                "tealium_event"  : "more_info",
+                "location"       : "<%= location.name %>"
+                })'
+              > More Info
+            </a>
+          </p>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+</div>
+
+<% include partials/footer %>
