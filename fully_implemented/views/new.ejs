@@ -32,7 +32,7 @@
       <a class="btn btn-info btn-med" href="/">Go Back</a>
 
       <!-- Modal button -->
-      <button class="btn btn-info btn-med" onclick="openModal()">More Info</button>
+      <button class="btn btn-info btn-med" onclick="openModal(), ga('send', 'event', 'open_modal', 'button_click');">More Info</button>
 
       <!-- Modal body -->
       <dialog id="moreInfo">
