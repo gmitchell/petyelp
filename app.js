@@ -14,6 +14,7 @@ var locationSchema = new mongoose.Schema({
   description: String
 })
 
+
 var Location = mongoose.model("Location", locationSchema);
 
 // INDEX - Show all locations
